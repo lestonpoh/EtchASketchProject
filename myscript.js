@@ -2,6 +2,11 @@ let mouseTrigger = false;
 document.addEventListener("mousedown",()=> mouseTrigger=true);
 document.addEventListener("mouseup",()=> mouseTrigger=false)
 
+let colors = [
+    'red', 'blue', 'orange',
+    'yellow', 'green', 'purple'
+];
+
 const container = document.querySelector(".container");
 
 function createGrid(number){
@@ -25,7 +30,15 @@ const squares = document.querySelectorAll(".square")
 squares.forEach((square)=> 
     square.addEventListener("mouseover",()=>{
         if (mouseTrigger === true){
-        square.classList.add("squarehover")
+            let random_color = colors[(Math.floor(
+                Math.random() * colors.length))];
+            console.log(random_color)
+
+            square.classList.add("squarehover")
+
+            // var squarehover = document.querySelector(".squarehover");
+            square.style.backgroundColor = random_color;
+
         }
     }))
 
